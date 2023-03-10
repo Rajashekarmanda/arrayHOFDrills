@@ -7,21 +7,23 @@ function find(elements, cb) {
     let arr = elements
     let result
     let sendOutput = false
+    let count = 0
 
     for (let each of arr){
         result = cb(each.name)
         if (result){
-            sendOutput = true
+            sendOutput = each
+        }else{
+            count++
         }
     }
-    return sendOutput
+
+    if (count !== elements.length){
+        return sendOutput
+    }else{
+        return "not find any matches with array"
+    }
+
 }
 
 module.exports = find
-find([{name:"Rajashekar" },{name:"saikrishna"},{name:"hariprakash"}], function cb(name){
-    if (name == "hariprakash"){
-        return true
-    }else{
-        return false
-    }
-})
