@@ -7,7 +7,7 @@ function each(elements, cb) {
 
 
     let arr = elements
-    let returnArr = arr.map((eachEl) => eachEl={[cb(eachEl)]:eachEl})
+    let returnArr = arr.map((eachEl) => eachEl=cb(eachEl,elements.indexOf(eachEl)))
 
     return returnArr
 }
