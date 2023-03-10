@@ -4,5 +4,12 @@ function map(elements, cb) {
     // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
     // Return the new array.
 
-    return 'hello'
+    let newArr = []
+
+    for (let eachEl of elements ) {
+        newArr.push(cb(eachEl))
+    }
+
+    return newArr
 }
+module.exports = map
