@@ -7,7 +7,6 @@ const testCase1 = find([{name:"Rajashekar" },{name:"saikrishna"},{name:"hariprak
         return false
     }
 })
-
 console.log(testCase1)
 
 const testCase2 = find([{name:"Rajashekar" },{name:"saikrishna"},{name:"hariprakash"}], function cb(name){
@@ -17,5 +16,4 @@ const testCase2 = find([{name:"Rajashekar" },{name:"saikrishna"},{name:"hariprak
         return false
     }
 })
-
 console.log(testCase2)

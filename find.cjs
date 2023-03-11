@@ -3,25 +3,23 @@ function find(elements, cb) {
     // Look through each value in `elements` and pass each element to `cb`.
     // If `cb` returns `true` then return that element.
     // Return `undefined` if no elements pass the truth test.
-
     let arr = elements
-    let result
+    let resultFRomCB
     let sendOutput = false
-    let count = 0
+    let countOfFindings = 0
 
-    for (let each of arr){
-        result = cb(each.name)
-        if (result){
-            sendOutput = each
+    for (let eachElement of arr){
+        resultFRomCB = cb(eachElement.name)
+        if (resultFRomCB){
+            sendOutput = eachElement
         }else{
-            count++
+            countOfFindings++
         }
     }
-
-    if (count !== elements.length){
+    if (countOfFindings !== elements.length){
         return sendOutput
     }else{
-        return "not find any matches with array"
+        return undefined
     }
 
 }
