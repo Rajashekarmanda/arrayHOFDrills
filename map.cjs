@@ -5,11 +5,9 @@ function map(elements, cb) {
     // Return the new array.
 
     let newArr = []
-
     for (let eachEl of elements ) {
         newArr.push(cb(eachEl))
     }
-
     return newArr
 }
 module.exports = map
