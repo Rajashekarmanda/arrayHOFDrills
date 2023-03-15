@@ -5,9 +5,11 @@ function each(elements, cb) {
     // You should also pass the index into `cb` as the second argument
     // based off http://underscorejs.org/#each
 
-    let arr = elements
-    let returnArr = arr.map((eachElement) => eachElement=cb(eachElement,elements.indexOf(eachElement)))
-    
-    return returnArr
+    if (elements == undefined || elements == null || elements == '') {
+        return []
+    } else {
+        let arr = elements
+        let returnArr = arr.map((eachElement) => eachElement = cb(eachElement, elements.indexOf(eachElement)))
+    }
 }
 module.exports = each
