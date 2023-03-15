@@ -4,8 +4,17 @@ function map(elements, cb) {
     // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
     // Return the new array.
 
-    if (!Array.isArray(elements) || elements == undefined || elements == null || elements == '') {
+    if (elements == undefined || elements == null || elements == '') {
         return []
+    }else if (typeof elements=='object' && !Array.isArray(elements)){
+        if (elements.length < 1){
+            return []
+        }else {
+            return Object.values(elements)
+        }
+    }else if (typeof elements == 'string'){
+        let resultStringArr = []
+        for (let i=0; i<elements.length; i++){resultStringArr.push(elements[i])} return resultStringArr
     } else {
 
         let mapArray = []

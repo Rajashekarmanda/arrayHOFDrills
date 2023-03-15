@@ -4,21 +4,33 @@ function find(elements, cb) {
     // If `cb` returns `true` then return that element.
     // Return `undefined` if no elements pass the truth test.
 
-    if (!Array.isArray(elements) || elements == '' || elements == undefined || elements == null || elements == NaN ) {
+    if (elements == '' || elements == undefined || elements == null || elements == NaN) {
         return undefined
-    } else {
-        let sendOutput
-        for (let eachElement of elements) {
-            resultFRomCB = cb(eachElement)
-            if (resultFRomCB) {
-                sendOutput = eachElement
-                break
+    } else if (!Array.isArray(elements) || typeof elements == 'string') {
+        if (cb == undefined) {
+            if (typeof elements == 'object') {
+                return Object.values(elements)[0]
+            } else {
+                return elements[0]
             }
         }
-        return sendOutput
-
+    } else {
+        if (elements.length < 1) {
+            return []
+        } else if (cb == undefined) {
+            return elements[0]
+        } else {
+            let sendOutput = ''
+            for (let eachElement of elements) {
+                let resultFRomCB = cb(eachElement)
+                if (resultFRomCB) {
+                    sendOutput = eachElement
+                    break
+                }
+            }
+            return sendOutput
+        }
     }
-
 }
-
 module.exports = find
+

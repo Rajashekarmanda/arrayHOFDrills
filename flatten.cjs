@@ -7,20 +7,16 @@ function flatten(elements) {
         return [];
     } else {
         let flattenArray = []
-
         for (let k = 0; k < elements.length; k++) {
             if (Array.isArray(elements[k])) {
                 let arrElements = flatten(elements[k])
-
                 flattenArray = flattenArray.concat(arrElements)
             } else {
                 flattenArray.push(elements[k]);
             }
         }
-
         return flattenArray;
     }
 }
-
 module.exports = flatten;
 

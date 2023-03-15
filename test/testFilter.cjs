@@ -8,9 +8,15 @@ const testCase1 = filter([1,2,3,4,5,6,7,8], function cb(num){
     }
 })
 console.log(testCase1)
-console.log(filter(undefined))
-console.log(filter([]))
-console.log(filter(null))
-console.log(filter(''))
+
+console.log(filter([1,2,3,4,5]))
+console.log(filter(undefined));
+console.log(filter(null));
+console.log(filter([]));
+console.log(filter({}))
+console.log(filter(NaN));
+console.log(filter(""));
+console.log(filter("ggg"));
+console.log(filter({ key: 0, val: 99 }));
 
 

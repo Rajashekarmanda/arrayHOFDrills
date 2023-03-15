@@ -7,9 +7,12 @@ function each(elements, cb) {
 
     if (elements == undefined || elements == null || elements == '') {
         return []
+    }else if (typeof elements == 'object' && !Array.isArray(elements)){
+        Object.entries(elements).map((eachElement) => cb(eachElement[0],eachElement[1],elements))
+        return ''
     } else {
         let arr = elements
-        let returnArr = arr.map((eachElement) => eachElement = cb(eachElement, elements.indexOf(eachElement)))
+        arr.map((eachElement) => eachElement = cb(eachElement, elements.indexOf(eachElement),elements))
     }
 }
 module.exports = each
