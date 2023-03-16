@@ -10,7 +10,7 @@ console.log(flatten([]));
 console.log(flatten({}));
 console.log(flatten(NaN));
 console.log(flatten(""));
-console.log(flatten("Hello world"));
+console.log(flatten("Hello"));
 console.log(flatten({ key: 10, val: 99 }));
 
-console.log(flatten([1,2,[3],[4,5,6,[7,[[8]]]]]))
+console.log(flatten([1,2,[3],[[7,[[8]]]]]))

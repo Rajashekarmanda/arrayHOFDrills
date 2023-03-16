@@ -1,25 +1,16 @@
 function filter(elements, cb) {
-    // Do NOT use .filter, to complete this function.
-    // Similar to `find` but you will return an array of all elements that passed the truth test
-    // Return an empty array if no elements pass the truth test
-    
-    if (elements == '' || elements == undefined || elements == null || elements == NaN) {
+    if (elements == '' || elements==undefined && typeof elements != 'object' && typeof elements!='string') {
         return []
-    } else if (Array.isArray(elements) && cb == undefined) {
-        return elements
-    } else if (typeof elements == 'string' && elements.length > 0) {
-        return elements.split('')
-    } else if (typeof elements == 'object' && !Array.isArray(elements)) {
-        return Object.values(elements)
     } else {
-        let performedArray = []
-        for (let i = 0; i < elements.length; i++) {
-            let filterData = cb(elements[i], elements.indexOf(elements[i]))
-            if (filterData) {
-                performedArray.push(elements[i])
-            }
+        if (typeof cb != 'function'){
+            let filterArr = []
+            for (let index in elements) { filterArr.push(elements[index]) } return filterArr
+        }let filteredArray = []
+        elements = (typeof elements == 'object') ? elements : elements.split('')
+        for (let index in elements) { let responseCallBack = cb ( elements[index], index, elements )
+            responseCallBack ? filteredArray.push(elements[index]) : ""                     // ternary operator
         }
-        return performedArray
+        return filteredArray
     }
 }
 module.exports = filter

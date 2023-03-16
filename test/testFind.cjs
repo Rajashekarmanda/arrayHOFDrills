@@ -16,3 +16,12 @@ console.log(find(null));
 console.log(find([]));
 console.log(find({}));
 console.log(find(""));
+console.log(find(123))
+console.log(find("hello"));
+console.log(find('12345'), function(word){      
+    if (word=='4'){
+        return true
+    }else {
+        return false
+    }
+})

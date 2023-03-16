@@ -1,29 +1,17 @@
 function map(elements, cb) {
-    // Do NOT use .map, to complete this function.
-    // How map works: Map calls a provided callback function once for each element in an array, in order, and functionructs a new array from the res .
-    // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
-    // Return the new array.
-
-    if (elements == undefined || elements == null || elements == '') {
+    if (elements == '' || elements == undefined || elements == NaN || elements == null) {
         return []
-    } else if (typeof elements == 'object' && !Array.isArray(elements)) {
-        if (elements.length < 1) {
-            return []
-        } else {
-            return Object.values(elements)
-        }
-    } else if (typeof elements == 'string') {
-        let resultStringArr = []
-        for (let i = 0; i < elements.length; i++) { resultStringArr.push(elements[i]) } return resultStringArr
     } else {
-        if (cb !== undefined && cb !== null) {
-            let mapArray = []
-            for (let eachElement of elements) {
-                mapArray.push(cb(eachElement))
-            }
-            return mapArray
-        }else{
-            return elements
+        if (typeof cb !== 'function' && typeof elements == 'object') {
+            return Array.isArray(elements) ? elements : Object.values(elements)
+        } else if (typeof cb !== 'function' && typeof elements == 'string') {
+            return elements.split('')
+        } else {
+            let mappedArray = []
+            for (let index in elements) {
+                let responseCallBack = cb(elements[index], index)
+                mappedArray.push(responseCallBack)
+            } return mappedArray
         }
     }
 }
