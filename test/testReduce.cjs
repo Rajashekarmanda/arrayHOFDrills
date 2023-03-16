@@ -4,8 +4,9 @@ const dataAdding = reduce([10,10,10,10,100,1,2,3,4,5], function cb(accum,rem){re
 
 console.log(dataAdding)
 
-reduce(null)
-reduce([])
-reduce({})
-reduce(NaN)
-reduce(undefined)
+console.log(reduce([]));
+console.log(reduce({}));
+console.log(reduce(""));
+console.log(reduce("Hello world !", undefined));
+console.log(reduce({ key: 10, val: 99 }, undefined));
+console.log(reduce([2, 3], undefined));

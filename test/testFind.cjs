@@ -8,9 +8,9 @@ const testCase1 = find([1,1,3,4,5,6] ,function(num){
     }
 })
 console.log(testCase1)
-console.log(find([1, 2, 3, 4, 5]));
-console.log(find("Hello world"));
-console.log(find({ key: 10, val: 99 }));
+console.log(find([1, 2, 3, 4, 5],undefined));
+console.log(find("Hello world",undefined));
+console.log(find({ key: 10, val: 99 },undefined));
 console.log(find(undefined));
 console.log(find(null));
 console.log(find([]));

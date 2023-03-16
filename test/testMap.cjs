@@ -9,5 +9,7 @@ console.log(map(null));
 console.log(map([]));
 console.log(map({}));
 console.log(map(""));
-console.log(map("Hello world"));
-console.log(map({ key: 10, val: 99 }));
+console.log(map("Hello world !",undefined));
+console.log(map({ key: 10, val: 99 },undefined));
+console.log(map([2,4,6,8],null))
+console.log(map([2,4,6,8],undefined))

@@ -5,18 +5,25 @@ function reduce(elements, cb, startingValue) {
     // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
     // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
 
-    if (elements == '' || elements == undefined || elements == null || elements==[] || elements==NaN){
-        console.error(`Error: cannot read properties ${elements}`) 
-        return ''
-    }else {
-        let reducedArray = elements
-        for (let i = startingValue; i < elements.length - 1; i++) {
-            let accumulator = cb(reducedArray[0], reducedArray[1])
-            reducedArray = reducedArray.slice(2,)
-            reducedArray.unshift(accumulator)
+    if (elements == undefined || elements == null || elements == NaN) {
+
+        return `Error: cannot read properties ${elements}`
+        
+    } else if (elements == [] || elements === {} || elements == '') {
+        return undefined
+    } else {
+        if (cb !== undefined) {
+            let reducedArray = elements
+            for (let i = startingValue; i < elements.length - 1; i++) {
+                let accumulator = cb(reducedArray[0], reducedArray[1])
+                reducedArray = reducedArray.slice(2,)
+                reducedArray.unshift(accumulator)
+            }
+            let returnOutput = reducedArray[0]
+            return returnOutput
+        }else {
+            return `TypeError: iteratee is not a function`
         }
-        let returnOutput = reducedArray[0]
-        return returnOutput
     }
 }
 module.exports = reduce

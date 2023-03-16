@@ -11,8 +11,7 @@ function each(elements, cb) {
         Object.entries(elements).map((eachElement) => cb(eachElement[0],eachElement[1],elements))
         return ''
     }else if (Array.isArray(elements) && cb==undefined){
-        console.error(`Error: iterate is not a function`)
-        return ''
+        return `TypeError: iterate is not a function` 
     } else {
         let arr = elements
         arr.map((eachElement) => eachElement = cb(eachElement, elements.indexOf(eachElement),elements))

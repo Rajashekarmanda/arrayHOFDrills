@@ -6,22 +6,25 @@ function map(elements, cb) {
 
     if (elements == undefined || elements == null || elements == '') {
         return []
-    }else if (typeof elements=='object' && !Array.isArray(elements)){
-        if (elements.length < 1){
+    } else if (typeof elements == 'object' && !Array.isArray(elements)) {
+        if (elements.length < 1) {
             return []
-        }else {
+        } else {
             return Object.values(elements)
         }
-    }else if (typeof elements == 'string'){
+    } else if (typeof elements == 'string') {
         let resultStringArr = []
-        for (let i=0; i<elements.length; i++){resultStringArr.push(elements[i])} return resultStringArr
+        for (let i = 0; i < elements.length; i++) { resultStringArr.push(elements[i]) } return resultStringArr
     } else {
-
-        let mapArray = []
-        for (let eachElement of elements) {
-            mapArray.push(cb(eachElement))
+        if (cb !== undefined && cb !== null) {
+            let mapArray = []
+            for (let eachElement of elements) {
+                mapArray.push(cb(eachElement))
+            }
+            return mapArray
+        }else{
+            return elements
         }
-        return mapArray
     }
 }
 module.exports = map
