@@ -6,7 +6,8 @@ function reduce(elements, cb, startingValue) {
     // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
 
     if (elements == '' || elements == undefined || elements == null || elements==[] || elements==NaN){
-        return undefined
+        console.error(`Error: cannot read properties ${elements}`) 
+        return ''
     }else {
         let reducedArray = elements
         for (let i = startingValue; i < elements.length - 1; i++) {
