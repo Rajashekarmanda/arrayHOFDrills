@@ -5,8 +5,8 @@ function each(elements, cb) {
     // You should also pass the index into `cb` as the second argument
     // based off http://underscorejs.org/#each
 
-    if (elements == undefined || elements == null || elements == '') {
-        return []
+    if (elements == undefined || elements == null || elements == '' || typeof elements =='number') {
+        return elements
     }else if (typeof elements == 'object' && !Array.isArray(elements)){
         Object.entries(elements).map((eachElement) => cb(eachElement[0],eachElement[1],elements))
         return ''

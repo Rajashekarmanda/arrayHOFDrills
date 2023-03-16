@@ -12,6 +12,4 @@ each({one:1,two:2,three:3},function cb(key,val,object){
 console.log(each(undefined))
 console.log(each(null))
 console.log(each(''))
-
-
-// console.log(Object.entries({one:1,two:2,three:3}))
+console.log(each(12))
